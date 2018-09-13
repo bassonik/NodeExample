@@ -3,13 +3,15 @@ const app = express();
 const hbs = require("hbs");
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
+
 // register partials
 hbs.registerPartials(__dirname + "/views/partials/");
 
 //helpers
 hbs.registerHelper('getCurrentYear', ()=>{
     return new Date().getFullYear();
-})
+});
 
 //middleware
 
@@ -43,6 +45,6 @@ app.use("/", index);
 app.use("/about", about);
 
 
-app.listen(1200 , ()=>{
-    console.log("Server is running on 1200");
+app.listen(port , ()=>{
+    console.log(`Server is running on ${port}`);
 });
