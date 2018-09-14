@@ -37,13 +37,13 @@ app.use((req,res,next)=>{
 
 
 //routes 
-
+const projects = require("./routes/projects");
 const about = require("./routes/about");
 const index = require("./routes/index");
 
 app.use("/", index);
 app.use("/about", about);
-
+app.use("/projects", projects);
 
 app.listen(port , ()=>{
     console.log(`Server is running on ${port}`);
